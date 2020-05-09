@@ -4,3 +4,4 @@ vault login $VAULT_TOKEN
 
 echo "Adding secrets to Vault..."
 vault kv put secret/password value=postgres
+vault kf put secret/username value=admin

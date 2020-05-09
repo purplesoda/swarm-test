@@ -13,16 +13,17 @@ services:
       restart_policy:
         condition: on-failure
   vault:
-    image: vault
+    image: brad7miller/vault:latest
     networks:
       - backend
   db:
+    env_file: .env
     image: postgres:9.4
     depends_on:
       - vault
     environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_USER: "${username}"
+      POSTGRES_PASSWORD: "${password}"
     volumes:
       - db-data:/var/lib/postgresql/data
     networks:
