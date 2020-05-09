@@ -16,6 +16,8 @@ services:
     image: brad7miller/vault:latest
     networks:
       - backend
+    ports:
+      - 8200:8200
   db:
     env_file: .env
     image: postgres:9.4
