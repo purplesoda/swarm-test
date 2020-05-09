@@ -16,12 +16,6 @@ services:
     image: vault
     networks:
       - backend
-    volumes:
-      - vault:/run
-    deploy:
-      placement:
-        constraints: [node.role == manager]
-    entrypoint: /run/vault-init.sh
   db:
     image: postgres:9.4
     depends_on:
